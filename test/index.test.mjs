@@ -43,8 +43,8 @@ async function rec_check_for_dead_links(driver, address, visited) {
     return false;
 }
 
+
 function check_for(text, pattern) {
-    process.stdout.write("checked!");
     if (text.match(pattern) == null) return false;
     else return true;
 }
@@ -171,35 +171,49 @@ function check_for(text, pattern) {
 //     after(async () => driver.quit());
 // });
 
-describe("links tests", async function() {
-    this.timeout(60000);
+// describe("links tests", async function() {
+//     this.timeout(60000);
+//     let driver = {}
+//     before(async () => {
+//       driver = new Builder().withCapabilities(Capabilities.firefox()).build();
+//     });
+
+//     it("checks if there are dead links on any page", async() => {
+//         const visited = new Set();
+//         expect(await rec_check_for_dead_links(driver,"http://localhost:3000/", visited)).equal(false);
+//     })
+
+//     after(async () => driver.quit());
+// });
+
+
+describe("main page test", async function() {
+    this.timeout(25000);
     let driver = {}
+    
     before(async () => {
       driver = new Builder().withCapabilities(Capabilities.firefox()).build();
     });
 
-    // it("checks if there are dead links on main page", async() => {
-    //     await driver.get("http://localhost:3000/");
-    //     let allURLs = await driver.findElements(By.css("a")); 
-    //     let ix = 0;
-    //     for (let link of allURLs) {
-    //         let all_new_URLs = await driver.findElements(By.css("a")); 
-    //         await all_new_URLs[ix].click();
-
-    //         let bodyText = await driver.findElement(By.css("body")).getText();
-    //         expect(check_for(bodyText, /Wystąpił błąd/)).equal(false);
-            
-    //         driver.get("http://localhost:3000/");
-    //         ix += 1;
-    //     }
+    // it("simple registration following links on page", async () => {
+    //     await driver.get("http://localhost:3000");
+    //     let reservation_link = await driver.findElement(By.xpath("//*[text()='Zarezerwuj']"));
+    //     await reservation_link.click();
+    //     await fill_form(driver, "Musztarda", "Sarepska", "123456789", "Musztarda@gmail.com", 1);
+    //     await driver.findElement(By.id("submitid")).click();
+    //     expect(await driver.getCurrentUrl()).includes("http://localhost:3000/book-success/")
     // })
 
-    it("checks if there are dead links on any page", async() => {
-        const visited = new Set();
-        expect(await rec_check_for_dead_links(driver,"http://localhost:3000/", visited)).equal(false);
+    it("the trips are displayed in correct order", async () => {
+        await driver.get("http://localhost:3000");
+        let trips = await driver.findElements(By.className("trip"));
+        let text1 = await trips[0].getText();
+        expect(await text1.includes('Miasto')).equal(true);
+        let text2 = await trips[1].getText();
+        expect(await text2.includes('Góry')).equal(true);
     })
-
-
 
     after(async () => driver.quit());
 });
+
+

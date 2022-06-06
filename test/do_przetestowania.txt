@@ -1,11 +1,10 @@
 do przetestowania:
 ogólnie:
     
-    czy użytkownik może wejść na stronę, przejść przez opis
-    wycieczki do rezerwacji a potem się zarejestrować
+   
 formularz:
 strona startowa:
-    czy wszystkie przyciski mają działające linki
+    
     czy wyświetlają sie odpowiednie wycieczki
 baza danych:
     czy zgłoszenie zapisuje w bazie danych to co miało
@@ -18,3 +17,7 @@ zrobione:
     czy get_wycieczka zwraca odpowiednią wycieczkę
     niepoprawne dane w formularzu (wiele testów)
     za wiele osób wyciecze w formularzu
+ 
+    czy użytkownik może wejść na stronę, przejść przez opis
+    wycieczki do rezerwacji a potem się zarejestrować
+    czy wszystkie przyciski mają działające linki
