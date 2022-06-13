@@ -158,27 +158,27 @@ function check_for(text, pattern) {
 //     after(async () => driver.quit());
 // });
 
-// describe("error page tests", async function() {
-//     this.timeout(7000);
-//     let driver = {}
-//     before(async () => {
-//       driver = new Builder().withCapabilities(Capabilities.firefox()).build();
-//     });
+describe("error page tests", async function() {
+    this.timeout(7000);
+    let driver = {}
+    before(async () => {
+      driver = new Builder().withCapabilities(Capabilities.firefox()).build();
+    });
 
-//     it("checks error page for random address", async() => {
-//         await driver.get("http://localhost:3000/egdbsfbbs");
-//         let error_msg = await driver.findElement(By.id("error_msg"));
-//         expect(await error_msg.getText()).equal("Nie znaleziono strony o podanym adresie!");
-//     })
+    it("checks error page for random address", async() => {
+        await driver.get("http://localhost:3000/egdbsfbbs");
+        let error_msg = await driver.findElement(By.id("error_msg"));
+        expect(await error_msg.getText()).equal("Nie znaleziono strony o podanym adresie!");
+    })
 
-//     it("checks error page for non existing trip", async() => {
-//         await driver.get("http://localhost:3000/trip/4");
-//         let error_msg = await driver.findElement(By.id("error_msg"));
-//         expect(await error_msg.getText()).equal("Nie znaleziono strony o podanym adresie!");
-//     })
+    it("checks error page for non existing trip", async() => {
+        await driver.get("http://localhost:3000/trip/4");
+        let error_msg = await driver.findElement(By.id("error_msg"));
+        expect(await error_msg.getText()).equal("Nie znaleziono strony o podanym adresie!");
+    })
 
-//     after(async () => driver.quit());
-// });
+    after(async () => driver.quit());
+});
 
 // describe("links tests", async function() {
 //     this.timeout(60000);
