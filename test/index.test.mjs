@@ -196,33 +196,33 @@ function check_for(text, pattern) {
 // });
 
 
-describe("main page test", async function() {
-    this.timeout(25000);
-    let driver = {}
+// describe("main page test", async function() {
+//     this.timeout(25000);
+//     let driver = {}
     
-    before(async () => {
-      driver = new Builder().withCapabilities(Capabilities.firefox()).build();
-    });
+//     before(async () => {
+//       driver = new Builder().withCapabilities(Capabilities.firefox()).build();
+//     });
 
-    it("simple registration following links on page", async () => {
-        await driver.get("http://localhost:3000");
-        let reservation_link = await driver.findElement(By.xpath("//*[text()='Zarezerwuj']"));
-        await reservation_link.click();
-        await fill_form(driver, "Musztarda", "Sarepska", "123456789", "Musztarda@gmail.com", 1);
-        await driver.findElement(By.id("submitid")).click();
-        expect(await driver.getCurrentUrl()).includes("http://localhost:3000/book-success/")
-    })
+//     it("simple registration following links on page", async () => {
+//         await driver.get("http://localhost:3000");
+//         let reservation_link = await driver.findElement(By.xpath("//*[text()='Zarezerwuj']"));
+//         await reservation_link.click();
+//         await fill_form(driver, "Musztarda", "Sarepska", "123456789", "Musztarda@gmail.com", 1);
+//         await driver.findElement(By.id("submitid")).click();
+//         expect(await driver.getCurrentUrl()).includes("http://localhost:3000/book-success/")
+//     })
 
-    it("the trips are displayed in correct order", async () => {
-        await driver.get("http://localhost:3000");
-        let trips = await driver.findElements(By.className("trip"));
-        let text1 = await trips[0].getText();
-        expect(await text1.includes('Miasto')).equal(true);
-        let text2 = await trips[1].getText();
-        expect(await text2.includes('Góry')).equal(true);
-    })
+//     it("the trips are displayed in correct order", async () => {
+//         await driver.get("http://localhost:3000");
+//         let trips = await driver.findElements(By.className("trip"));
+//         let text1 = await trips[0].getText();
+//         expect(await text1.includes('Miasto')).equal(true);
+//         let text2 = await trips[1].getText();
+//         expect(await text2.includes('Góry')).equal(true);
+//     })
 
-    after(async () => driver.quit());
-});
+//     after(async () => driver.quit());
+// });
 
 
