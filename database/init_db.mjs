@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 
 export const init_func = async (db) => {
      // Synchronizacja

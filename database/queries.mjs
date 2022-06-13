@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Op } from "sequelize";
 
 export const get_all_wycieczki = async (db, t = null) =>
