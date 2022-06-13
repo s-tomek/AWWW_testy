@@ -58,105 +58,105 @@ function check_for(text, pattern) {
 
 
 
-// describe("form tests", function() {
-//     this.timeout(9000);
-//     let driver = {}
-//     let very_long_string = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-//     before(async () => {
-//         driver = new Builder().withCapabilities(Capabilities.firefox()).build();
-//         await get_db_postgres().then(async (db) => {
-//         await init_func(db);
-//       });
-//     });
+describe("form tests", function() {
+    this.timeout(9000);
+    let driver = {}
+    let very_long_string = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    before(async () => {
+        driver = new Builder().withCapabilities(Capabilities.firefox()).build();
+        await get_db_postgres().then(async (db) => {
+        await init_func(db);
+      });
+    });
 
-//     it("correctly redirects after correct input", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         console.log(await driver.getCurrentUrl());
-//         await takeScreenshot(driver, "screen1.png");
-//         await fill_form(driver, "Musztarda", "Sarepska", "123456789", "Musztarda@gmail.com", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book-success/2")
-//     })
+    it("correctly redirects after correct input", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        console.log(await driver.getCurrentUrl());
+        await takeScreenshot(driver, "screen1.png");
+        await fill_form(driver, "Musztarda", "Sarepska", "123456789", "Musztarda@gmail.com", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book-success/2")
+    })
 
-//     it("reacts to wrong phone number", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", "Sarepska", "999", "Musztarda@gmail.com", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to wrong phone number", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", "Sarepska", "999", "Musztarda@gmail.com", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to empty name", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "", "Sarepska", "123123123", "Musztarda@gmail.com", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to empty name", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "", "Sarepska", "123123123", "Musztarda@gmail.com", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to very long name", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, very_long_string, "Sarepska", "123123123", "Musztarda@gmail.com", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to very long name", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, very_long_string, "Sarepska", "123123123", "Musztarda@gmail.com", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to empty surname", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", "", "123123123", "Musztarda@gmail.com", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to empty surname", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", "", "123123123", "Musztarda@gmail.com", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to very long surname", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", very_long_string, "123123123", "Musztarda@gmail.com", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to very long surname", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", very_long_string, "123123123", "Musztarda@gmail.com", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to empty email", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", "Sarepska", "123123123", "", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to empty email", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", "Sarepska", "123123123", "", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to incorrect email - incorrect domain", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda@domanwithoutdotcom", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to incorrect email - incorrect domain", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda@domanwithoutdotcom", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to incorrect email - no @ character", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to incorrect email - no @ character", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to too many participants", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda@gmail.com", 20);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to too many participants", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda@gmail.com", 20);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to non integer number of participants", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda@gmail.com", 2.5);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to non integer number of participants", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda@gmail.com", 2.5);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     it("reacts to negative integer number of participants", async () => {
-//         await driver.get("http://localhost:3000/book/2");
-//         await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda@gmail.com", -1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
-//     });
+    it("reacts to negative integer number of participants", async () => {
+        await driver.get("http://localhost:3000/book/2");
+        await fill_form(driver, "Musztarda", "Sarepska", "123123123", "Musztarda@gmail.com", -1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).to.equal("http://localhost:3000/book/2")
+    });
 
-//     after(async () => driver.quit());
-// });
+    after(async () => driver.quit());
+});
 
 describe("error page tests", async function() {
     this.timeout(7000);
@@ -180,49 +180,49 @@ describe("error page tests", async function() {
     after(async () => driver.quit());
 });
 
-// describe("links tests", async function() {
-//     this.timeout(60000);
-//     let driver = {}
-//     before(async () => {
-//       driver = new Builder().withCapabilities(Capabilities.firefox()).build();
-//     });
+describe("links tests", async function() {
+    this.timeout(60000);
+    let driver = {}
+    before(async () => {
+      driver = new Builder().withCapabilities(Capabilities.firefox()).build();
+    });
 
-//     it("checks if there are dead links on any page", async() => {
-//         const visited = new Set();
-//         expect(await rec_check_for_dead_links(driver,"http://localhost:3000/", visited)).equal(false);
-//     })
+    it("checks if there are dead links on any page", async() => {
+        const visited = new Set();
+        expect(await rec_check_for_dead_links(driver,"http://localhost:3000/", visited)).equal(false);
+    })
 
-//     after(async () => driver.quit());
-// });
+    after(async () => driver.quit());
+});
 
 
-// describe("main page test", async function() {
-//     this.timeout(25000);
-//     let driver = {}
+describe("main page test", async function() {
+    this.timeout(25000);
+    let driver = {}
     
-//     before(async () => {
-//       driver = new Builder().withCapabilities(Capabilities.firefox()).build();
-//     });
+    before(async () => {
+      driver = new Builder().withCapabilities(Capabilities.firefox()).build();
+    });
 
-//     it("simple registration following links on page", async () => {
-//         await driver.get("http://localhost:3000");
-//         let reservation_link = await driver.findElement(By.xpath("//*[text()='Zarezerwuj']"));
-//         await reservation_link.click();
-//         await fill_form(driver, "Musztarda", "Sarepska", "123456789", "Musztarda@gmail.com", 1);
-//         await driver.findElement(By.id("submitid")).click();
-//         expect(await driver.getCurrentUrl()).includes("http://localhost:3000/book-success/")
-//     })
+    it("simple registration following links on page", async () => {
+        await driver.get("http://localhost:3000");
+        let reservation_link = await driver.findElement(By.xpath("//*[text()='Zarezerwuj']"));
+        await reservation_link.click();
+        await fill_form(driver, "Musztarda", "Sarepska", "123456789", "Musztarda@gmail.com", 1);
+        await driver.findElement(By.id("submitid")).click();
+        expect(await driver.getCurrentUrl()).includes("http://localhost:3000/book-success/")
+    })
 
-//     it("the trips are displayed in correct order", async () => {
-//         await driver.get("http://localhost:3000");
-//         let trips = await driver.findElements(By.className("trip"));
-//         let text1 = await trips[0].getText();
-//         expect(await text1.includes('Miasto')).equal(true);
-//         let text2 = await trips[1].getText();
-//         expect(await text2.includes('Góry')).equal(true);
-//     })
+    it("the trips are displayed in correct order", async () => {
+        await driver.get("http://localhost:3000");
+        let trips = await driver.findElements(By.className("trip"));
+        let text1 = await trips[0].getText();
+        expect(await text1.includes('Miasto')).equal(true);
+        let text2 = await trips[1].getText();
+        expect(await text2.includes('Góry')).equal(true);
+    })
 
-//     after(async () => driver.quit());
-// });
+    after(async () => driver.quit());
+});
 
 
